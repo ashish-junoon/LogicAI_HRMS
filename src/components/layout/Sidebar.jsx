@@ -1,4 +1,4 @@
-import { Settings, LogOut, Home, Users, Calendar, FileText, Briefcase, HelpCircle, BarChart3, X, SquareArrowRightExit, Coffee, Notebook, LayoutList } from 'lucide-react'
+import { Settings, LogOut, Home, Users, Calendar, FileText, Briefcase, HelpCircle, BarChart3, X, SquareArrowRightExit, Coffee, Notebook, LayoutList, PartyPopper, Handshake } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -27,6 +27,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         { icon: Coffee, label: 'Leaves', path: '/leaves' },
         { icon: Notebook, label: 'Payslips', path: '/payslips' },
         { icon: LayoutList, label: 'Task List', path: '/task-list' },
+        { icon: Handshake, label: 'Interact', path: '/interact' },
     ]
 
     const supportItems = [

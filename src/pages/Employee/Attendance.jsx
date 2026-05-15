@@ -35,10 +35,10 @@ function handleEvents(events) {
 const Attendance = () => {
     const [editable, setEditable] = useState(false);
     return (
-        <div className='p-8 bg-background'>
+        <div className='p-6 bg-background'>
             {/* custom topbar  */}
-            <div className='flex justify-between'>
-                <div className="text-4xl py-5">Attendance</div>
+            <div className='flex justify-between mb-5'>
+                <div className="text-3xl font-bold text-gray-900">Attendance</div>
                 <Button
                     style={`${!editable ? 'bg-pink-600' : 'bg-gray-400'} self-center`}
                     onClick={() => setEditable(!editable)}

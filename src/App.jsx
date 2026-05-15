@@ -12,6 +12,7 @@ import Information from './pages/Employee/Information.jsx';
 import Leaves from './pages/Employee/Leaves.jsx';
 import TasksList from './pages/Employee/TasksList.jsx';
 import Payslips from './pages/Employee/Payslips.jsx';
+import Interact from './pages/Employee/Interact.jsx';
 
 const App = () => {
   const { isAuthenticated, user } = useAuth();
@@ -41,6 +42,7 @@ const App = () => {
                 <Route path="/leaves" element={<Leaves/>} />
                 <Route path="/payslips" element={<Payslips />} />
                 <Route path="/task-list" element={<TasksList/>} />
+                <Route path="/interact" element={<Interact/>} />
 
                 {/* extra routes */}
                 <Route path="/settings" element={<Settings/>} />
