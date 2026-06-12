@@ -9,8 +9,10 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import ErrorMsg from '../../components/utils/ErrorMsg';
+import TextInput from '../../components/fields/TextInput';
+import SelectInput from '../../components/fields/SelectInput';
 
-console.log("dfasd", DataTable)
+// console.log("dfasd", DataTable)
 
 const Leaves = () => {
 
@@ -107,7 +109,7 @@ const Leaves = () => {
                             {dummyLeaves.map((leave, index) => (
                                 <div
                                     key={index}
-                                    className={`bg-${leave?.color} flex items-center gap-4 rounded-md shadow-sm p-4 border border-gray-200 w-56 hover:shadow-md transition`}
+                                    className={`bg-${leave?.color} flex items-center gap-4 rounded-md shadow-sm p-4 border border-gray-200 w-fit max-w-44 hover:shadow-md transition`}
                                 >
                                     {/* Count */}
                                     <div className={`h-12 w-12 flex items-center justify-center rounded-lg`}>
@@ -119,7 +121,7 @@ const Leaves = () => {
                                     {/* Text */}
                                     <div className="flex flex-col">
                                         <p className="text-lg capitalize font-semibold text-gray-900">
-                                            Total {leave?.type}
+                                            {leave?.type}
                                         </p>
                                     </div>
                                 </div>
@@ -180,22 +182,17 @@ const Leaves = () => {
                 <form id="leaveForm" onSubmit={leaveFormik.handleSubmit} >
                     <div className="space-y-4">
                         {/* Leave Type */}
-                        <div>
-                            <label className="text-xs text-gray-700 mb-1 block">
-                                Leave Type
-                            </label>
-                            <select
-                                {...leaveFormik.getFieldProps('leaveType')}
-                                className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm">
-                                <option>Casual Leave</option>
-                                <option>Sick Leave</option>
-                                <option>Earned Leave</option>
-                                <option>Work From Home</option>
-                            </select>
-                            {leaveFormik.touched.leaveType && leaveFormik.errors.leaveType ? (
-                                <ErrorMsg error={leaveFormik.errors.leaveType} />
-                            ) : null}
-                        </div>
+                        <SelectInput
+                            label={"Leave Type"}
+                            {...leaveFormik.getFieldProps('leaveType')}
+                            options={[
+                                { label: "Casual Leave", value: "Casual Leave" },
+                                { label: "Sick Leave", value: "Sick Leave" },
+                                { label: "Earned Leave", value: "Earned Leave" },
+                                { label: "Work From Home", value: "Work From Home" },
+                            ]}
+                            error={leaveFormik.touched.leaveType && leaveFormik.errors.leaveType}
+                        />
 
                         {/* Date Range */}
                         <div className="grid grid-cols-2 gap-3">
@@ -203,14 +200,14 @@ const Leaves = () => {
                                 <label className="text-xs text-gray-700 mb-1 block">
                                     From Date
                                 </label>
-                                <input                                
+                                <input
                                     type="date"
                                     {...leaveFormik.getFieldProps('fromDate')}
                                     className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm"
                                 />
                                 {leaveFormik.touched.fromDate && leaveFormik.errors.fromDate ? (
-                                <ErrorMsg error={leaveFormik.errors.fromDate} />
-                            ) : null}
+                                    <ErrorMsg error={leaveFormik.errors.fromDate} />
+                                ) : null}
                             </div>
 
                             <div>
@@ -223,8 +220,8 @@ const Leaves = () => {
                                     className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm"
                                 />
                                 {leaveFormik.touched.toDate && leaveFormik.errors.toDate ? (
-                                <ErrorMsg error={leaveFormik.errors.toDate} />
-                            ) : null}
+                                    <ErrorMsg error={leaveFormik.errors.toDate} />
+                                ) : null}
                             </div>
                         </div>
 
@@ -252,22 +249,20 @@ const Leaves = () => {
                             ) : null}
                         </div>
 
-                        {/* Reporting Manager */}
                         <div>
-                            <label className="text-xs text-gray-700 mb-1 block">
-                                Reporting Manager
-                            </label>
-                            <select className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm"
-                                {...leaveFormik.getFieldProps('rm')}
-                            >
-                                <option>Select Manager</option>
-                                <option>John Doe</option>
-                                <option>Jane Smith</option>
-                            </select>
-                            {leaveFormik.touched.rm && leaveFormik.errors.rm ? (
-                                <ErrorMsg error={leaveFormik.errors.rm} />
-                            ) : null}
+                            <TextInput
+                                label={"CC:"}
+                                placeholder="Add , separated emails"
+                            />
                         </div>
+
+                        {/* Reporting Manager */}
+                        <SelectInput
+                            label={"Reporting Manager"}
+                            {...leaveFormik.getFieldProps('rm')}
+                            options={[{ label: "Jane Smith", value: "Jane Smith" }]}
+                            error={leaveFormik.touched.rm && leaveFormik.errors.rm}
+                        />
                     </div>
                 </form>
             </Modal>

@@ -9,6 +9,8 @@ import {
   X,
 } from 'lucide-react';
 import Chip from './utils/Chip';
+import Button from './utils/Button';
+import TextInput from './fields/TextInput';
 
 const departments = [
   'All Departments',
@@ -61,21 +63,16 @@ function FilterCard() {
           </div>
         </div>
 
-        <button className="text-sm font-medium text-gray-500 transition hover:text-red-500">
+        <button className="text-sm font-medium text-gray-500 transition cursor-pointer hover:text-red-500">
           Reset
         </button>
       </div>
 
       {/* Search */}
       <div className="mb-3">
-        <label className="mb-1 block text-sm font-medium text-gray-700">
-          Search
-        </label>
-
-        <input
-          type="text"
+        <TextInput 
+          label={"Search"}
           placeholder="Search posts..."
-          className="h-8 w-full rounded-lg border border-gray-200 bg-gray-50 px-2 text-sm outline-none transition focus:border-gray-400 focus:bg-white"
         />
       </div>
 
@@ -153,10 +150,9 @@ function FilterCard() {
       </div>
 
       {/* Footer */}
-      <button className="flex h-8 w-full items-center justify-center gap-2 rounded-lg bg-gray-900 text-sm font-semibold text-white transition hover:bg-black">
-        <Users size={16} />
+      <Button icon={Users} className="flex h-8 w-full items-center justify-center gap-3 rounded-lg bg-gray-900 text-sm font-semibold text-white transition cursor-pointer hover:bg-black">
         Apply Filters
-      </button>
+      </Button>
     </div>
   );
 }

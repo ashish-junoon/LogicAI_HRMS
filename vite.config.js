@@ -4,6 +4,11 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    watch: {
+      usePolling: true
+    }
+  },
   plugins: [
     react(),
     tailwindcss(),
@@ -11,7 +16,7 @@ export default defineConfig({
   theme: {
     extend: {
       colors: {
-        primary: "#DB2777",      // pink-600
+        primary: "#00ff00",      // pink-600
         primaryLight: "#F472B6", // pink-400
         primaryDark: "#BE185D",  // pink-700
 

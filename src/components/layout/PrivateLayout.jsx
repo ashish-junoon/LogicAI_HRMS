@@ -20,8 +20,12 @@ const PrivateLayout = () => {
 
                 <main className="flex-1 overflow-auto">
                     <Outlet />
+
                 </main>
 
+                    <div className='text-pink-800 font-semibold backdrop-blur-xs bg-transparent text-sm text-center py-1 rounded-full bg-linear-to-r from-transparent via-pink-200  to-transparent fixed bottom-0 right-10'>
+                        © Powered by LogicAI
+                    </div>
             </div>
 
             <NotificationShade isOpen={notificationOpen} setIsOpen={setNotificationOpen} />

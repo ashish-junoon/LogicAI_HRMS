@@ -11,6 +11,7 @@ import Modal from '../../components/utils/Modal';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import ErrorMsg from '../../components/utils/ErrorMsg';
+import SelectInput from '../../components/fields/SelectInput';
 
 
 const TasksList = () => {
@@ -209,42 +210,29 @@ const TasksList = () => {
 
             {/* priority + assignee */}
             <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="text-xs text-gray-700 mb-1 block">
-                  Priority
-                </label>
-                <select
-                  name="priority"
-                  {...taskFormik.getFieldProps('priority')}
-                  className="w-full px-3 py-2 rounded-lg bg-white outline-gray-300 border border-gray-300 text-sm"
-                >
-                  <option>Low</option>
-                  <option>Medium</option>
-                  <option>High</option>
-                </select>
-                {taskFormik.touched.priority && taskFormik.errors.priority ? (
-                  <ErrorMsg error={taskFormik.errors.priority} />
-                ) : null}
-              </div>
+              <SelectInput
+                label={"Priority"}
+                name="priority"
+                {...taskFormik.getFieldProps('priority')}
+                options={[
+                  { label: "Low", value: "Low" },
+                  { label: "Medium", value: "Medium" },
+                  { label: "High", value: "High" },
+                ]}
+                error={taskFormik.touched.priority && taskFormik.errors.priority}
+              />
 
-              <div>
-                <label className="text-xs text-gray-700 mb-1 block">
-                  Assignee
-                </label>
-                <select
-                  name="assignee"
-                  {...taskFormik.getFieldProps('assignee')}
-                  className="w-full px-3 py-2 rounded-lg bg-white outline-gray-300 border border-gray-300 text-sm"
-                >
-                  <option value="">Select</option>
-                  <option>John Doe</option>
-                  <option>Jane Smith</option>
-                  <option>HR Manager</option>
-                </select>
-                {taskFormik.touched.assignee && taskFormik.errors.assignee ? (
-                  <ErrorMsg error={taskFormik.errors.assignee} />
-                ) : null}
-              </div>
+              <SelectInput
+                label={"Assignee"}
+                name="assignee"
+                {...taskFormik.getFieldProps('assignee')}
+                options={[
+                  { label: "John Doe", value: "John Doe" },
+                  { label: "Jane Smith", value: "Jane Smith" },
+                  { label: "HR Manager", value: "HR Manager" },
+                ]}
+                error={taskFormik.touched.assignee && taskFormik.errors.assignee}
+              />
             </div>
           </div>
         </form>

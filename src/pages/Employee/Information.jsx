@@ -34,7 +34,7 @@ const Information = () => {
 
     return (
         <div className="flex-1 overflow-y-auto p-6 bg-gray-50">
-            <div className="max-w-5xl mx-auto">
+            <div className="mx-auto">
 
                 {/* Header */}
                 <div className="mb-6">
@@ -100,7 +100,7 @@ const Information = () => {
                         </button>
                         <button
                             onClick={() => setActiveTab('request')}
-                            className="px-4 py-2 cursor-pointer border border-gray-400-b rounded-lg text-sm hover:bg-gray-50">
+                            className="px-4 py-2 cursor-pointer border border-gray-300 shadow-xm rounded-lg text-sm hover:bg-gray-50">
                             Submit a Request
                         </button>
                     </div>
@@ -140,13 +140,13 @@ const Information = () => {
                             <input
                                 type="text"
                                 placeholder="Subject"
-                                className="w-full border border-gray-400 rounded-lg p-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
+                                className="w-full border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
                             />
 
                             <textarea
                                 rows={4}
                                 placeholder="Describe your issue..."
-                                className="w-full border border-gray-400 rounded-lg p-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
+                                className="w-full border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
                             />
 
                             <div className="flex gap-3">
@@ -156,7 +156,7 @@ const Information = () => {
 
                                 <button
                                     onClick={() => setActiveTab("contact")}
-                                    className="px-4 py-2 border border-gray-400 rounded-lg text-sm hover:bg-gray-50"
+                                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:bg-gray-50"
                                 >
                                     Cancel
                                 </button>

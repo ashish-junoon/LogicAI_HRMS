@@ -27,10 +27,11 @@ const Settings = () => {
         <div className="flex bg-gray-50">
             {/* Content */}
             <div className="flex-1 p-8 overflow-y-auto">
-                <div className="max-w-4xl mx-auto">
+                <div className="mx-auto">
 
                     <h1 className="text-2xl font-bold mb-6 capitalize">
-                        {activeTab} Settings
+                        {activeTab} 
+                        {/* Settings */}
                     </h1>
 
                     <form onSubmit={handleSave} className="space-y-6">
@@ -49,6 +50,7 @@ const Settings = () => {
                                             name="name"
                                             value={form.name}
                                             onChange={handleChange}
+                                            disabled
                                             className="input outline-0 border-b border-gray-400 w-80"
                                         />
                                     </div>
@@ -59,6 +61,7 @@ const Settings = () => {
                                             name="email"
                                             value={form.email}
                                             onChange={handleChange}
+                                            disabled
                                             className="input outline-0 border-b border-gray-400 w-80"
                                         />
                                     </div>
@@ -69,6 +72,7 @@ const Settings = () => {
                                             name="phone"
                                             value={form.phone}
                                             onChange={handleChange}
+                                            disabled
                                             className="input outline-0 border-b border-gray-400 w-80"
                                         />
                                     </div>
@@ -79,7 +83,7 @@ const Settings = () => {
                                             name="department"
                                             value={form.department}
                                             disabled
-                                            className="input outline-0 border-b border-gray-400 bg-gray-100 w-80"
+                                            className="input outline-0 border-b border-gray-400 w-80"
                                         />
                                     </div>
                                 </div>
@@ -128,14 +132,14 @@ const Settings = () => {
                         )}
 
                         {/* SAVE BUTTON */}
-                        <div className="flex justify-end">
+                        {/* <div className="flex justify-end">
                             <button
                                 type="submit"
                                 className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 rounded-lg transition"
                             >
                                 Save Changes
                             </button>
-                        </div>
+                        </div> */}
 
                     </form>
                 </div>

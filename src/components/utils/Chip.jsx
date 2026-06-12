@@ -8,13 +8,13 @@ const colorMap = {
     gray: "bg-gray-200 text-gray-700",
 };
 
-const Chip = ({ title, color = 'green', ...props }) => {
+const Chip = ({ title, color = 'green', style, ...props }) => {
 
     const colorStyles = colorMap[color] || colorMap.green;
 
     return (
         <div
-            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold capitalize ${colorStyles}`}
+            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold capitalize ${style} ${colorStyles}`}
             {...props}
         >
             {title}

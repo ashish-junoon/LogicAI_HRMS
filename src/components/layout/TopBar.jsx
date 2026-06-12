@@ -21,14 +21,14 @@ const TopBar = ({ isOpen, setIsOpen, setNotificationOpen }) => {
                 </button>
 
                 {/* Search Bar */}
-                <div className="hidden sm:flex items-center bg-gray-100 rounded-lg px-4 py-2 gap-2">
+                {/* <div className="hidden sm:flex items-center bg-gray-100 rounded-lg px-4 py-2 gap-2">
                     <Search size={20} className="text-gray-400" />
                     <input
                         type="text"
                         placeholder="Search"
                         className="bg-transparent outline-none text-gray-700 placeholder-gray-400 w-80"
                     />
-                </div>
+                </div> */}
             </div>
 
             {/* Right Section */}

@@ -38,7 +38,7 @@ const Login = () => {
       {/* Left Section - Onboarding */}
       <div className="hidden lg:flex w-1/2 bg-linear-to-br from-gray-100 to-gray-200 flex-col items-center justify-center p-8">
         {/* Illustration Placeholder */}
-        <div className="w-120 h-120 bg-white rounded-3xl shadow-lg flex items-center justify-center">
+        <div className="w-120 h-120 bg-white rounded-xl shadow-lg flex items-center justify-center">
           <img src={illustration} alt="illustration" />
 
         </div>

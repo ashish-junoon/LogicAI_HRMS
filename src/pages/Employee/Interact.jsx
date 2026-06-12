@@ -100,9 +100,10 @@ function Interact() {
                   JS
                 </div>
 
-                <button className="flex-1 rounded-2xl bg-gray-100 px-5 py-3 text-left text-sm text-gray-500 transition hover:bg-gray-200">
-                  Share an update with your team...
-                </button>
+                <input className="flex-1 rounded-2xl bg-gray-100 px-5 py-3 text-left text-sm text-gray-500 transition hover:bg-gray-200"
+                placeholder=' Share an update with your team...'
+                />
+                 
               </div>
 
               <div className="mt-4 flex items-center gap-2 border-t border-gray-100 pt-3">

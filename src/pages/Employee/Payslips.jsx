@@ -1,6 +1,7 @@
-import { Download, Plus, SquareArrowRightExit, SquareChartGantt } from 'lucide-react';
-import React from 'react'
+import { Download, Eye, EyeClosed, Plus, SquareArrowRightExit, SquareChartGantt, View } from 'lucide-react';
+import React, { useState } from 'react'
 import Button from '../../components/utils/Button';
+import SelectInput from '../../components/fields/SelectInput';
 
 const dummyData = {
   basic: 50000,
@@ -19,6 +20,7 @@ const dummyTax = {
 };
 
 const Payslips = () => {
+  const [view, setView] = useState(false);
   return (
     <div className='flex grid-cols-12 h-full'>
       {/* content  */}
@@ -30,6 +32,7 @@ const Payslips = () => {
             <p className="text-gray-600 text-sm mt-1">{new Date().toLocaleDateString('en-IN', { month: 'long' })}, {new Date().getFullYear()}</p>
           </div>
           <div className='flex gap-4 self-center'>
+            <Button icon={view? Eye: EyeClosed} iconRight style='!text-gray-700 !bg-white !border !border-gray-200 !rounded-xl' onClick={()=>setView(!view)} />
             <Button icon={Download} iconRight />
             <select name="months" id="months" className='min-w-32 bg-white px-2 rounded-sm outline-none border border-gray-200'>
               <option value="april">April 2026</option>
@@ -56,14 +59,14 @@ const Payslips = () => {
               {Object.entries(dummyData).map(([key, value]) => (
                 <div key={key} className='flex justify-between px-4 py-2'>
                   <div className="text-gray-600 capitalize">{key}</div>
-                  <div className="text-gray-800 font-medium">{value}</div>
+                  <div className="text-gray-800 font-medium">{view ? value : '****'}</div>
                 </div>
               ))}
             </div>
 
             <div className='bg-green-50 flex justify-between px-4 py-3 font-semibold text-green-700'>
               <div>Total</div>
-              <div>₹ 75,500</div>
+              <div>{view?"₹ 75,500": "*****"}</div>
             </div>
           </div>
 
@@ -82,14 +85,14 @@ const Payslips = () => {
               {Object.entries(dummyTax).map(([key, value]) => (
                 <div key={key} className='flex justify-between px-4 py-2'>
                   <div className="text-gray-600 capitalize">{key}</div>
-                  <div className="text-red-600 font-medium">- {value}</div>
+                  <div className="text-red-600 font-medium">{view? value: "****"}</div>
                 </div>
               ))}
             </div>
 
             <div className='bg-red-50 flex justify-between px-4 py-3 font-semibold text-red-700'>
               <div>Total</div>
-              <div>₹ 12,000</div>
+              <div>{view?"₹ 12,000":"*****"}</div>
             </div>
           </div>
 
@@ -130,20 +133,20 @@ const Payslips = () => {
             <div className="border-t p-4 mt-4 rounded-md shadow-sm border border-gray-200 bg-white">
               <div className="flex justify-between text-sm mb-2">
                 <span className="text-gray-500">Total Earnings</span>
-                <span className="font-medium text-gray-800">₹ 75,500</span>
+                <span className="font-medium text-gray-800">₹ {view?"75,500":"*****"}</span>
               </div>
 
               <div className="flex justify-between text-sm mb-3">
                 <span className="text-gray-500">Total Deductions</span>
-                <span className="font-medium text-red-600">₹ 12,000</span>
+                <span className="font-medium text-red-600">₹ {view?"12,000":"*****"}</span>
               </div>
 
               <div className="flex justify-between text-lg font-bold text-green-700">
                 <span>Net Pay</span>
-                <span>₹ 63,500</span>
+                <span>₹ {view?"63,500":"*****"}</span>
               </div>
             </div>
-            
+
           </div>
 
         </div>
